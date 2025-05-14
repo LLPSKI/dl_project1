@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>author_nofound</title>
+</head>
+<body>
+    <h1>D1_Porject1</h1>
+    <h2>Author Found:</h2>
+    <ul>
+        {% for author in a %}
+        <li>
+            <form action="/track" method="POST">
+                <input type="hidden" name="author_name" value="{{ author.name }}">
+                <button type="submit" style="background: none; border: none; cursor: pointer; color: blue; text-decoration: underline;">
+                    {{ author.name }}
+                </button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    <button onclick="history.back()">返回</button>
+</body>
+</html>
