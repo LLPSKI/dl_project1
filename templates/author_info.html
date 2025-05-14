@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>author_nofound</title>
+</head>
+<body>
+    <h1>D1_Porject1</h1>
+    <h2>Author {{b}} Info:</h2>
+    <ul>
+        {% for x in a %}
+        <li>
+            <a href="{{x[1]}}">
+                {{x[0]}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <button onclick="history.back()">返回</button>
+</body>
+</html>
