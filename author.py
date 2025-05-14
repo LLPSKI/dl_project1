@@ -5,6 +5,10 @@ import os
 script_dir = os.path.dirname(__file__)
 cache_dir = os.path.join(script_dir, 'cache')
 data_cache_dir = os.path.join(script_dir, 'data_cache')
+if not os.path.exists(cache_dir):
+    os.makedirs(cache_dir)
+if not os.path.exists(data_cache_dir):
+    os.makedirs(data_cache_dir)
 
 class Author:
     def __init__(self, author:tuple[str, str]):
