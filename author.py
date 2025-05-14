@@ -22,14 +22,14 @@ class Author:
                 print("Found In Cache!")
                 with open(os.path.join(data_cache_dir, f'{self.name}'), 'r') as file:
                     response = file.read()
-                    soup = BeautifulSoup(response, 'lxml')
+                    soup = BeautifulSoup(response, 'html.parser')
                 success = True
                 break
         if not success:
             print("No Found In Cache!")
             print("Loading Pages...")
             response = requests.get(self.page_url)
-            soup = BeautifulSoup(response.text, 'lxml')
+            soup = BeautifulSoup(response.text, 'html.parser')
             with open(os.path.join(data_cache_dir, f'{self.name}'), 'w') as file:
                 file.write(response.text)
         print("OK!")
@@ -66,12 +66,12 @@ def search_author(author_name:str) -> list[Author]:
         print(f"Found In Cache!")
         with open(os.path.join(cache_dir, author_name), 'r') as file:
             response = file.read()
-            soup = BeautifulSoup(response, features='xml')
+            soup = BeautifulSoup(response, 'html.parser')
     else:
         print(f'No Found In Cache!')
         print("Get Response!")
         response = requests.get(url)
-        soup = BeautifulSoup(response.text, features='xml')
+        soup = BeautifulSoup(response.text, 'html.parser')
         with open(os.path.join(cache_dir, author_name), 'w') as file:
             file.write(response.text)
     print("Processing!")
